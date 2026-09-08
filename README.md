@@ -1,6 +1,6 @@
-# Floral Photography
+# Floral Photography Website 
 
-A simple, elegant photography website. Only you can add photos (via GitHub). Visitors can view your gallery and click Like on any photo — no login, no backend, no setup required.
+A simple, elegant photography website. Visitors can view my gallery and click Like on any photo — no login, no backend, no setup required.
 
 ## Live Site
 
@@ -9,7 +9,7 @@ A simple, elegant photography website. Only you can add photos (via GitHub). Vis
 ## Features
 
 - Scrolling welcome banner: "Welcome to my world of floral photography"
-- White background with black and blue text
+- black background with white and blue text
 - Elegant flower quotes in the four corners of the page (desktop view)
 - Photo gallery — you control what's shown
 - Like button on each photo (no comments)
