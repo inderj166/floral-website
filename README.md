@@ -2,6 +2,10 @@
 
 A simple, elegant photography website. Only you can add photos (via GitHub). Visitors can view your gallery and click Like on any photo — no login, no backend, no setup required.
 
+## Live Site
+
+**[https://inderj166.github.io/floral-website/](https://inderj166.github.io/floral-website/)**
+
 ## Features
 
 - Scrolling welcome banner: "Welcome to my world of floral photography"
@@ -19,19 +23,26 @@ This site has **no backend/database** (kept intentionally simple, no Firebase ne
 
 ## How to Add a Photo
 
-1. In your GitHub repo, open (or create) the `photos` folder, then **Add file → Upload files** to upload your image (e.g. `rose1.jpg`).
+You can add as many photos as you like — just repeat these steps for each one.
+
+1. In your GitHub repo, open the `photos` folder, then **Add file → Upload files** to upload your image (e.g. `rose1.jpg`).
 2. Open `index.html`, click the pencil (edit) icon, and find:
    ```js
    const PHOTOS = [
    ];
    ```
-3. Add a line inside the brackets:
+3. Add a line inside the brackets for each photo:
    ```js
-   { id: "rose1", file: "photos/rose1.jpg", caption: "First light on a garden rose" },
+   const PHOTOS = [
+     { id: "rose1", file: "photos/rose1.jpg", caption: "First light on a garden rose" },
+     { id: "rose2", file: "photos/rose2.jpg", caption: "Deep red bloom" },
+   ];
    ```
-4. Commit the change. Your photo now appears live on the site.
+   Each photo needs a unique `id`, the correct `file` path, and any `caption` you like.
+4. Commit the change. Your photo(s) now appear live on the site.
 
 ## Hosting on GitHub Pages
 
 Go to **Settings → Pages**, set Source to the `main` branch and `/ (root)` folder, and save. Your site will be live at:
 `https://inderj166.github.io/floral-website/`
+
