@@ -34,4 +34,4 @@ This site has **no backend/database** (kept intentionally simple, no Firebase ne
 ## Hosting on GitHub Pages
 
 Go to **Settings → Pages**, set Source to the `main` branch and `/ (root)` folder, and save. Your site will be live at:
-`https://inderj166.github.io/<your-repo-name>/`
+`https://inderj166.github.io/floral-website/`
