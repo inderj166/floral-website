@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inderjeet Kour — World of Floral Photography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --blue: #1D4FD8;
+    --pale-blue: #EEF3FF;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Corner Quotes ---------- */
+  .corner-quote {
+    position: fixed;
+    max-width: 190px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--blue);
+    opacity: 0.75;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .corner-quote .attribution {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--black);
+    font-style: normal;
+    opacity: 0.6;
+  }
+
+  .quote-tl { top: 24px; left: 24px; text-align: left; transform: rotate(-2deg); }
+  .quote-tr { top: 24px; right: 24px; text-align: right; transform: rotate(2deg); }
+  .quote-bl { bottom: 24px; left: 24px; text-align: left; transform: rotate(2deg); }
+  .quote-br { bottom: 24px; right: 24px; text-align: right; transform: rotate(-2deg); }
+
+  @media (max-width: 900px) {
+    .corner-quote { display: none; }
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    padding: 64px 24px 28px;
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .flower-row { font-size: 24px; margin-bottom: 14px; letter-spacing: 10px; }
+
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 44px;
+    color: var(--black);
+    margin: 0 0 8px;
+    line-height: 1.15;
+  }
+
+  header h1 .accent { color: var(--blue); }
+
+  .title-underline {
+    width: 80px;
+    height: 3px;
+    margin: 0 auto 20px;
+    background: var(--blue);
+    border-radius: 2px;
+  }
+
+  header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--black);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ---------- Marquee ---------- */
+  .marquee-wrap {
+    background: var(--blue);
+    overflow: hidden;
+    padding: 13px 0;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+  }
+
+  .marquee-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-left 22s linear infinite;
+  }
+
+  .marquee-track span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    letter-spacing: 0.5px;
+    color: var(--white);
+    padding: 0 40px;
+  }
+
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery {
+    max-width: 1000px;
+    margin: 54px auto 50px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .photo-card {
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #E7ECF7;
+    box-shadow: 0 2px 8px rgba(29, 79, 216, 0.06);
+  }
+
+  .photo-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .photo-meta { padding: 16px 18px 20px; }
+
+  .photo-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: var(--black);
+    margin: 0 0 12px;
+  }
+
+  .like-row { display: flex; align-items: center; gap: 10px; }
+
+  .like-btn {
+    background: none;
+    border: 1.5px solid var(--blue);
+    color: var(--blue);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s ease;
+  }
+
+  .like-btn.liked { background: var(--blue); color: var(--white); }
+  .like-btn:hover { transform: scale(1.04); }
+
+  .like-count { font-size: 13px; color: #555; }
+
+  .empty-state {
+    max-width: 500px;
+    margin: 30px auto 60px;
+    text-align: center;
+    color: #777;
+    font-size: 15px;
+    line-height: 1.7;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+  }
+
+  footer {
+    text-align: center;
+    padding: 28px 20px 46px;
+    font-size: 13px;
+    color: #999;
+    border-top: 1px solid var(--pale-blue);
+    position: relative;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+
+<div class="corner-quote quote-tl">
+  "Where flowers bloom, so does hope."
+  <span class="attribution">— Lady Bird Johnson</span>
+</div>
+<div class="corner-quote quote-tr">
+  "The earth laughs in flowers."
+  <span class="attribution">— Ralph Waldo Emerson</span>
+</div>
+<div class="corner-quote quote-bl">
+  "A flower blossoms for its own joy."
+  <span class="attribution">— Oscar Wilde</span>
+</div>
+<div class="corner-quote quote-br">
+  "Every flower is a soul blossoming in nature."
+  <span class="attribution">— Gerard De Nerval</span>
+</div>
+
+<header>
+  <div class="flower-row">🌸 🌷 🌼</div>
+  <h1>Welcome to My <span class="accent">World</span> of Floral Photography</h1>
+  <div class="title-underline"></div>
+  <p>A quiet collection of petals, light, and moments I've stopped to notice.</p>
+</header>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>🌸 Welcome to my world of floral photography 🌸 This website is live 🌸 Thank you for visiting 🌸 Welcome to my world of floral photography 🌸 This website is live 🌸 Thank you for visiting 🌸</span>
+  </div>
+</div>
+
+<div class="gallery" id="gallery"></div>
+<p class="empty-state" id="emptyState">No photos have been added yet. New blooms are on their way. 🌿</p>
+
+<footer>Floral Photography by Inderjeet Kour</footer>
+
+<script>
+  /* =========================================================
+     YOUR PHOTOS
+     To add a new photo:
+       1. Upload the image into the "photos" folder in your
+          GitHub repo (e.g. photos/rose1.jpg)
+       2. Add one line below with a unique id, the file path,
+          and a caption.
+       3. Commit the change on GitHub — it appears automatically.
+     ========================================================= */
+  const PHOTOS = [
+    // Example (delete once you add real ones):
+    // { id: "rose1", file: "photos/rose1.jpg", caption: "First light on a garden rose" },
+  ];
+
+  const LIKES_KEY = 'floral_likes_v1';
+
+  function loadLikes() {
+    try {
+      return JSON.parse(localStorage.getItem(LIKES_KEY)) || {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function saveLikes(likes) {
+    localStorage.setItem(LIKES_KEY, JSON.stringify(likes));
+  }
+
+  function createCard(photo, likesData) {
+    const card = document.createElement('div');
+    card.className = 'photo-card';
+
+    const img = document.createElement('img');
+    img.src = photo.file;
+    img.alt = photo.caption || 'Floral photo';
+    card.appendChild(img);
+
+    const meta = document.createElement('div');
+    meta.className = 'photo-meta';
+
+    const caption = document.createElement('p');
+    caption.className = 'photo-caption';
+    caption.textContent = photo.caption || 'Untitled bloom';
+    meta.appendChild(caption);
+
+    const likeRow = document.createElement('div');
+    likeRow.className = 'like-row';
+
+    const entry = likesData[photo.id] || { liked: false, count: 0 };
+
+    const likeBtn = document.createElement('button');
+    likeBtn.className = 'like-btn' + (entry.liked ? ' liked' : '');
+    likeBtn.textContent = entry.liked ? '♥ Liked' : '♡ Like';
+
+    const likeCount = document.createElement('span');
+    likeCount.className = 'like-count';
+    likeCount.textContent = entry.count + (entry.count === 1 ? ' like' : ' likes');
+
+    likeBtn.addEventListener('click', () => {
+      const likes = loadLikes();
+      const current = likes[photo.id] || { liked: false, count: 0 };
+      current.liked = !current.liked;
+      current.count += current.liked ? 1 : -1;
+      likes[photo.id] = current;
+      saveLikes(likes);
+
+      likeBtn.classList.toggle('liked', current.liked);
+      likeBtn.textContent = current.liked ? '♥ Liked' : '♡ Like';
+      likeCount.textContent = current.count + (current.count === 1 ? ' like' : ' likes');
+    });
+
+    likeRow.appendChild(likeBtn);
+    likeRow.appendChild(likeCount);
+    meta.appendChild(likeRow);
+    card.appendChild(meta);
+
+    return card;
+  }
+
+  function render() {
+    const gallery = document.getElementById('gallery');
+    const emptyState = document.getElementById('emptyState');
+    gallery.innerHTML = '';
+
+    if (PHOTOS.length === 0) {
+      emptyState.style.display = 'block';
+      return;
+    }
+    emptyState.style.display = 'none';
+
+    const likesData = loadLikes();
+    PHOTOS.forEach((photo) => gallery.appendChild(createCard(photo, likesData)));
+  }
+
+  render();
+</script>
+
+</body>
+</html>
