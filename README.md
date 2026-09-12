@@ -1,4 +1,4 @@
-# Floral Photography Website 
+## Floral Photography Website 
 
 A simple, elegant photography website. Visitors can view my gallery and click Like on any photo — no login, no backend, no setup required.
 
@@ -6,7 +6,7 @@ A simple, elegant photography website. Visitors can view my gallery and click Li
 
 **[https://inderj166.github.io/floral-website/](https://inderj166.github.io/floral-website/)**
 
-## Features
+## Features :
 
 - Scrolling welcome banner: "Welcome to my world of floral photography"
 - black background with white and blue text
