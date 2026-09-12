@@ -2,7 +2,7 @@
 
 A simple, elegant photography website. Visitors can view my gallery and click Like on any photo — no login, no backend, no setup required.
 
-## Live Site
+## Live Site 
 
 **[https://inderj166.github.io/floral-website/](https://inderj166.github.io/floral-website/)**
 
